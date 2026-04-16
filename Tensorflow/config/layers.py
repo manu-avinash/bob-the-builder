@@ -81,10 +81,6 @@ class keras_Layers():
         layer=ly.Conv3DTranspose(filters=filters,kernel_size=kernel_size,strides=strides,padding=padding,data_format=data_format,output_padding=output_padding,dilation_rate=dilation_rate,activation=activation,use_bias=use_bias,kernel_initializer=kernel_initializer,bias_initializer=bias_initializer,kernel_regularizer=kernel_regularizer,bias_regularizer=bias_regularizer,activity_regularizer=activity_regularizer,kernel_constraint=kernel_constraint,bias_constraint=bias_constraint,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def flatten(self,):
-        layer=ly.Flatten()
-        self.built[layer.name]=layer
-        return layer
     def maxpool1d(self,pool_size=None, strides=None, padding=None, data_format=None, name=None, **kwargs):
         layer=ly.MaxPool1D(pool_size=pool_size, strides=strides, padding=padding, data_format=data_format, name=name, **kwargs)
         self.built[layer.name]=layer
@@ -171,7 +167,7 @@ class keras_Layers():
         self.built[layer.name]=layer
         return layer
     def gru_cell(self,units=None,activation=None,recurrent_activation=None,use_bias=None,kernel_initializer=None,recurrent_initializer=None,bias_initializer=None,kernel_regularizer=None,recurrent_regularizer=None,bias_regularizer=None,kernel_constraint=None,recurrent_constraint=None,bias_constraint=None,dropout=None,recurrent_dropout=None,reset_after=None,seed=None,**kwargs):
-        layer=ly.GRUCell()
+        layer=ly.GRUCell(units=units,activation=activation,recurrent_activation=recurrent_activation,use_bias=use_bias,kernel_initializer=kernel_initializer,recurrent_initializer=recurrent_initializer,bias_initializer=bias_initializer,kernel_regularizer=kernel_regularizer,recurrent_regularizer=recurrent_regularizer,bias_regularizer=bias_regularizer,kernel_constraint=kernel_constraint,recurrent_constraint=recurrent_constraint,bias_constraint=bias_constraint,dropout=dropout,recurrent_dropout=recurrent_dropout,reset_after=reset_after,seed=seed,**kwargs)
         self.built[layer.name]=layer
         return layer
     def simpleRnn(self,units=None,activation=None,use_bias=None,kernel_initializer=None,recurrent_initializer=None,bias_initializer=None,kernel_regularizer=None,recurrent_regularizer=None,bias_regularizer=None,activity_regularizer=None,kernel_constraint=None,recurrent_constraint=None,bias_constraint=None,dropout=None,recurrent_dropout=None,return_sequences=None,return_state=None,go_backwards=None,stateful=None,unroll=None,seed=None,**kwargs):
@@ -412,177 +408,177 @@ class keras_Layers():
         self.built[layer.name]=layer
         return layer
     #Regularization
-    def dropout(self):
-        layer=ly.Conv3D()
+    def dropout(self,rate=None, noise_shape=None, seed=None, **kwargs):
+        layer=ly.Dropout(rate=rate, noise_shape=noise_shape, seed=seed, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def spatialDropout1d(self):
-        layer=ly.Conv3D()
+    def spatialDropout1d(self,rate=None, seed=None, name=None, dtype=None):
+        layer=ly.SpatialDropout1D(rate=rate, seed=seed, name=name, dtype=dtype)
         self.built[layer.name]=layer
         return layer
-    def spatialDropout2d(self):
-        layer=ly.Conv3D()
+    def spatialDropout2d(self,rate=None, data_format=None, seed=None, name=None, dtype=None):
+        layer=ly.SpatialDropout2D(rate=rate, data_format=data_format, seed=seed, name=name, dtype=dtype)
         self.built[layer.name]=layer
         return layer
-    def spatialDropout3d(self):
-        layer=ly.Conv3D()
+    def spatialDropout3d(self,rate=None, data_format=None, seed=None, name=None, dtype=None):
+        layer=ly.SpatialDropout3D(rate=rate, data_format=data_format, seed=seed, name=name, dtype=dtype)
         self.built[layer.name]=layer
         return layer
-    def gaussianDropout(self):
-        layer=ly.Conv3D()
+    def gaussianDropout(self,rate=None, seed=None, **kwargs):
+        layer=ly.GaussianDropout(rate=rate, seed=seed, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def alphaDropout(self):
-        layer=ly.Conv3D()
+    def alphaDropout(self,rate=None, noise_shape=None, seed=None, **kwargs):
+        layer=ly.AlphaDropout(rate=rate, noise_shape=noise_shape, seed=seed, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def gaussianNoise(self):
-        layer=ly.Conv3D()
+    def gaussianNoise(self,stddev=None, seed=None, **kwargs):
+        layer=ly.GaussianNoise(stddev=stddev, seed=seed, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def activityRegularization(self):
-        layer=ly.Conv3D()
+    def activityRegularization(self,l1=None, l2=None, **kwargs):
+        layer=ly.ActivityRegularization(l1=l1, l2=l2, **kwargs)
         self.built[layer.name]=layer
         return layer
     #nlp-attention
-    def groupQueryAttention(self):
-        layer=ly.Conv3D()
+    def groupQueryAttention(self,head_dim=None,num_query_heads=None,num_key_value_heads=None,dropout=None,use_bias=None,flash_attention=None,kernel_initializer=None,bias_initializer=None,kernel_regularizer=None,bias_regularizer=None,activity_regularizer=None,kernel_constraint=None,bias_constraint=None,use_gate=None,seed=None,**kwargs):
+        layer=ly.GroupQueryAttention(head_dim=head_dim,num_query_heads=num_query_heads,num_key_value_heads=num_key_value_heads,dropout=dropout,use_bias=use_bias,flash_attention=flash_attention,kernel_initializer=kernel_initializer,bias_initializer=bias_initializer,kernel_regularizer=kernel_regularizer,bias_regularizer=bias_regularizer,activity_regularizer=activity_regularizer,kernel_constraint=kernel_constraint,bias_constraint=bias_constraint,use_gate=use_gate,seed=seed,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def multiHeadAttention(self):
-        layer=ly.Conv3D()
+    def multiHeadAttention(self,num_heads=None,key_dim=None,value_dim=None,dropout=None,use_bias=None,output_shape=None,attention_axes=None,flash_attention=None,kernel_initializer=None,bias_initializer=None,kernel_regularizer=None,bias_regularizer=None,activity_regularizer=None,kernel_constraint=None,bias_constraint=None,use_gate=None,seed=None,**kwargs):
+        layer=ly.MultiHeadAttention(num_heads=num_heads,key_dim=key_dim,value_dim=value_dim,dropout=dropout,use_bias=use_bias,output_shape=output_shape,attention_axes=attention_axes,flash_attention=flash_attention,kernel_initializer=kernel_initializer,bias_initializer=bias_initializer,kernel_regularizer=kernel_regularizer,bias_regularizer=bias_regularizer,activity_regularizer=activity_regularizer,kernel_constraint=kernel_constraint,bias_constraint=bias_constraint,use_gate=use_gate,seed=seed,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def attention(self):
-        layer=ly.Conv3D()
+    def attention(self,use_scale=None, score_mode=None, dropout=None, seed=None, **kwargs):
+        layer=ly.Attention(use_scale=use_scale, score_mode=score_mode, dropout=dropout, seed=seed, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def additiveAttention(self):
-        layer=ly.Conv3D()
+    def additiveAttention(self,use_scale=None, dropout=None, **kwargs):
+        layer=ly.AdditiveAttention(use_scale=use_scale, dropout=dropout, **kwargs)
         self.built[layer.name]=layer
         return layer
     #Reshaping
-    def reshape(self):
-        layer=ly.Conv3D()
+    def reshape(self,target_shape=None, **kwargs):
+        layer=ly.Reshape(target_shape=target_shape, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def flatten(self):
-        layer=ly.Conv3D()
+    def flatten(self,data_format=None, **kwargs):
+        layer=ly.Flatten(data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def repeatVector(self):
-        layer=ly.Conv3D()
+    def repeatVector(self,n=None,**kwargs):
+        layer=ly.RepeatVector(n=n,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def permute(self):
-        layer=ly.Conv3D()
+    def permute(self,dims,**kwargs):
+        layer=ly.Permute(dims=dims,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def cropping1d(self):
-        layer=ly.Conv3D()
+    def cropping1d(self,cropping=None,**kwargs):
+        layer=ly.Cropping1D(cropping=cropping,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def cropping2d(self):
-        layer=ly.Conv3D()
+    def cropping2d(self,cropping=None, data_format=None, **kwargs):
+        layer=ly.Cropping2D(cropping=cropping, data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def cropping3d(self):
-        layer=ly.Conv3D()
+    def cropping3d(self,cropping=None, data_format=None, **kwargs):
+        layer=ly.Cropping3D(cropping=cropping, data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def upSampling1d(self):
-        layer=ly.Conv3D()
+    def upSampling1d(self,size=None, **kwargs):
+        layer=ly.UpSampling1D(size=size, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def upSampling2d(self):
-        layer=ly.Conv3D()
+    def upSampling2d(self,size=None, data_format=None, interpolation=None, **kwargs):
+        layer=ly.UpSampling2D(size=size, data_format=data_format, interpolation=interpolation, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def upSampling3d(self):
-        layer=ly.Conv3D()
+    def upSampling3d(self,size=None, data_format=None, **kwargs):
+        layer=ly.UpSampling3D(size=size, data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def zeroPadding1d(self):
-        layer=ly.Conv3D()
+    def zeroPadding1d(self,padding=None, data_format=None, **kwargs):
+        layer=ly.ZeroPadding1D(padding=padding, data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def zeroPadding2d(self):
-        layer=ly.Conv3D()
+    def zeroPadding2d(self,padding=None, data_format=None, **kwargs):
+        layer=ly.ZeroPadding2D(padding=padding, data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def zeroPadding3d(self):
-        layer=ly.Conv3D()
+    def zeroPadding3d(self,padding=None, data_format=None, **kwargs):
+        layer=ly.ZeroPadding3D(padding=padding, data_format=data_format, **kwargs)
         self.built[layer.name]=layer
         return layer
     #merging
-    def concatenate(self):
-        layer=ly.Conv3D()
+    def concatenate(self,axis=None, **kwargs):
+        layer=ly.Concatenate(axis=axis, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def average(self):
-        layer=ly.Conv3D()
+    def average(self,**kwargs):
+        layer=ly.Average(**kwargs)
         self.built[layer.name]=layer
         return layer
-    def maximum(self):
-        layer=ly.Conv3D()
+    def maximum(self,**kwargs):
+        layer=ly.Maximum(**kwargs)
         self.built[layer.name]=layer
         return layer
-    def minimum(self):
-        layer=ly.Conv3D()
+    def minimum(self,**kwargs):
+        layer=ly.Minimum(**kwargs)
         self.built[layer.name]=layer
         return layer
-    def add(self):
-        layer=ly.Conv3D()
+    def add(self,**kwargs):
+        layer=ly.Add(**kwargs)
         self.built[layer.name]=layer
         return layer
-    def subtract(self):
-        layer=ly.Conv3D()
+    def subtract(self,**kwargs):
+        layer=ly.Subtract(**kwargs)
         self.built[layer.name]=layer
         return layer
-    def multiply(self):
-        layer=ly.Conv3D()
+    def multiply(self,**kwargs):
+        layer=ly.Multiply(**kwargs)
         self.built[layer.name]=layer
         return layer
-    def dot(self):
-        layer=ly.Conv3D()
+    def dot(self,axes=None, normalize=None, **kwargs):
+        layer=ly.Dot(axes=axes, normalize=normalize, **kwargs)
         self.built[layer.name]=layer
         return layer
     #opt-activation
-    def reLU(self):
-        layer=ly.Conv3D()
+    def reLU(self,max_value=None, negative_slope=None, threshold=None, **kwargs):
+        layer=ly.ReLU(max_value=max_value, negative_slope=negative_slope, threshold=threshold, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def softMax(self):
-        layer=ly.Conv3D()
+    def softMax(self,axis=None, **kwargs):
+        layer=ly.Softmax(axis=axis, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def leakyReLU(self):
-        layer=ly.Conv3D()
+    def leakyReLU(self,negative_slope=None, **kwargs):
+        layer=ly.LeakyReLU(negative_slope=negative_slope, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def pReLU(self):
-        layer=ly.Conv3D()
+    def pReLU(self,alpha_initializer=None,alpha_regularizer=None,alpha_constraint=None,shared_axes=None,**kwargs):
+        layer=ly.PReLU(alpha_initializer=alpha_initializer,alpha_regularizer=alpha_regularizer,alpha_constraint=alpha_constraint,shared_axes=shared_axes,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def elu(self):
-        layer=ly.Conv3D()
+    def elu(self,alpha=None, **kwargs):
+        layer=ly.ELU(alpha=alpha, **kwargs)
         self.built[layer.name]=layer
         return layer
     #Backend
-    def torchModuleWrapper(self):
-        layer=ly.Conv3D()
+    def torchModuleWrapper(self,module=None, name=None, output_shape=None, **kwargs):
+        layer=ly.TorchModuleWrapper(module=module, name=name, output_shape=output_shape, **kwargs)
         self.built[layer.name]=layer
         return layer
-    def tensorflow_savedModel(self):
-        layer=ly.Conv3D()
+    def tensorflow_savedModel(self,filepath=None,call_endpoint=None,call_training_endpoint=None,trainable=None,name=None,dtype=None,):
+        layer=ly.TFSMLayer(filepath=filepath,call_endpoint=call_endpoint,call_training_endpoint=call_training_endpoint,trainable=trainable,name=name,dtype=dtype,)
         self.built[layer.name]=layer
         return layer
-    def jax(self):
-        layer=ly.Conv3D()
+    def jax(self,call_fn=None,init_fn=None,params=None,state=None,seed=None,native_serialization_platforms=None,**kwargs):
+        layer=ly.JaxLayer(call_fn=call_fn,init_fn=init_fn,params=params,state=state,seed=seed,native_serialization_platforms=native_serialization_platforms,**kwargs)
         self.built[layer.name]=layer
         return layer
-    def flax(self):
-        layer=ly.Conv3D()
+    def flax(self,module=None, method=None, variables=None, **kwargs):
+        layer=ly.FlaxLayer(module=module, method=method, variables=variables, **kwargs)
         self.built[layer.name]=layer
         return layer
     
