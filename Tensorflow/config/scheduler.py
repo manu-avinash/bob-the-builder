@@ -3,7 +3,7 @@ import keras.optimizers.schedules as kos
 
 class Scheduler:
     def __init__(self):
-        self.built = {}
+        pass
 
     def exponentialDecay(
         self,
@@ -13,22 +13,20 @@ class Scheduler:
         staircase=None,
         name=None,
     ):
-        layer = kos.ExponentialDecay(
+
+        return kos.ExponentialDecay(
             initial_learning_rate=initial_learning_rate,
             decay_steps=decay_steps,
             decay_rate=decay_rate,
             staircase=staircase,
             name=name,
         )
-        self.built[layer.name] = layer
-        return
 
     def piecewiseConstantDecay(self, boundaries=None, values=None, name=None):
-        layer = kos.PiecewiseConstantDecay(
+
+        return kos.PiecewiseConstantDecay(
             boundaries=boundaries, values=values, name=name
         )
-        self.built[layer.name] = layer
-        return
 
     def polynomialDecay(
         self,
@@ -39,7 +37,8 @@ class Scheduler:
         cycle=None,
         name=None,
     ):
-        layer = kos.PolynomialDecay(
+
+        return kos.PolynomialDecay(
             initial_learning_rate=initial_learning_rate,
             decay_steps=decay_steps,
             end_learning_rate=end_learning_rate,
@@ -47,8 +46,6 @@ class Scheduler:
             cycle=cycle,
             name=name,
         )
-        self.built[layer.name] = layer
-        return
 
     def inverseTimeDecay(
         self,
@@ -58,15 +55,14 @@ class Scheduler:
         staircase=None,
         name=None,
     ):
-        layer = kos.InverseTimeDecay(
+
+        return kos.InverseTimeDecay(
             initial_learning_rate=initial_learning_rate,
             decay_steps=decay_steps,
             decay_rate=decay_rate,
             staircase=staircase,
             name=name,
         )
-        self.built[layer.name] = layer
-        return
 
     def cosineDecay(
         self,
@@ -77,7 +73,8 @@ class Scheduler:
         warmup_target=None,
         warmup_steps=None,
     ):
-        layer = kos.CosineDecay(
+
+        return kos.CosineDecay(
             initial_learning_rate=initial_learning_rate,
             decay_steps=decay_steps,
             alpha=alpha,
@@ -85,8 +82,6 @@ class Scheduler:
             warmup_target=warmup_target,
             warmup_steps=warmup_steps,
         )
-        self.built[layer.name] = layer
-        return
 
     def cosineDecayRestarts(
         self,
@@ -97,7 +92,8 @@ class Scheduler:
         alpha=None,
         name=None,
     ):
-        layer = kos.CosineDecayRestarts(
+
+        return kos.CosineDecayRestarts(
             initial_learning_rate=initial_learning_rate,
             first_decay_steps=first_decay_steps,
             t_mul=t_mul,
@@ -105,5 +101,3 @@ class Scheduler:
             alpha=alpha,
             name=name,
         )
-        self.built[layer.name] = layer
-        return

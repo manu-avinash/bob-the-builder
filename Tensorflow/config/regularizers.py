@@ -3,24 +3,20 @@ import keras.regularizers as kr
 
 class Regularizer:
     def __init__(self):
-        self.built = {}
+        pass
 
     def l1(self, l1=None):
-        layer = kr.L1(l1=l1)
-        self.built[layer.name] = layer
-        return layer
+
+        return kr.L1(l1=l1)
 
     def l2(self, l2=None):
-        layer = kr.L2(l2=l2)
-        self.built[layer.name] = layer
-        return layer
+
+        return kr.L2(l2=l2)
 
     def l1l2(self, l1=None, l2=None):
-        layer = kr.L1L2(l1=l1, l2=l2)
-        self.built[layer.name] = layer
-        return layer
+
+        return kr.L1L2(l1=l1, l2=l2)
 
     def orthogonalRegularizer(self, factor=None, mode=None):
-        layer = kr.OrthogonalRegularizer(factor=factor, mode=mode)
-        self.built[layer.name] = layer
-        return layer
+
+        return kr.OrthogonalRegularizer(factor=factor, mode=mode)

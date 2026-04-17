@@ -3,7 +3,7 @@ import keras.callbacks as kc
 
 class callbacks_:
     def __init__(self):
-        self.built = {}
+        self.built = {"callbacks": []}
 
     def modelCheckPoint(
         self,
@@ -26,8 +26,7 @@ class callbacks_:
             save_freq=save_freq,
             initial_value_threshold=initial_value_threshold,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def backupAndRestore(
         self,
@@ -42,8 +41,7 @@ class callbacks_:
             double_checkpoint=double_checkpoint,
             delete_checkpoint=delete_checkpoint,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def tENSORbOARD(
         self,
@@ -68,8 +66,7 @@ class callbacks_:
             embeddings_freq=embeddings_freq,
             embeddings_metadata=embeddings_metadata,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def earlyStopping(
         self,
@@ -92,13 +89,11 @@ class callbacks_:
             restore_best_weights=restore_best_weights,
             start_from_epoch=start_from_epoch,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def lrScheduler(self, schedule=None, verbose=None):
         layer = kc.LearningRateScheduler(schedule=schedule, verbose=verbose)
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def reduceLRonPlateau(
         self,
@@ -123,8 +118,7 @@ class callbacks_:
             min_lr=min_lr,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def remoteMonitor(
         self,
@@ -141,8 +135,7 @@ class callbacks_:
             headers=headers,
             send_as_json=send_as_json,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def lambdaCallback(
         self,
@@ -163,28 +156,23 @@ class callbacks_:
             on_train_batch_end=on_train_batch_end,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def terminateON_NaN(self, raise_error: bool = None):
         layer = kc.TerminateOnNaN(raise_error=raise_error)
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def CsvLogger(self, filename=None, separator=None, append=None):
         layer = kc.CSVLogger(filename=filename, separator=separator, append=append)
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def progBarLogger(self):
         layer = kc.ProgbarLogger()
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def swapEMAWeights(self, swap_on_epoch=None):
         layer = kc.SwapEMAWeights(swap_on_epoch=swap_on_epoch)
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)
 
     def orbaxCheckpoint(
         self,
@@ -211,5 +199,4 @@ class callbacks_:
             save_on_background=save_on_background,
             save_weights_only=save_weights_only,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["callbacks"].append(layer)

@@ -22,7 +22,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.SGD(
+
+        return ko.SGD(
             learning_rate=learning_rate,
             momentum=momentum,
             nesterov=nesterov,
@@ -38,8 +39,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def RMSprop(
         self,
@@ -60,7 +59,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.RMSprop(
+
+        return ko.RMSprop(
             learning_rate=learning_rate,
             rho=rho,
             momentum=momentum,
@@ -78,8 +78,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Adam(
         self,
@@ -100,7 +98,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Adam(
+
+        return ko.Adam(
             learning_rate=learning_rate,
             beta_1=beta_1,
             beta_2=beta_2,
@@ -118,8 +117,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def AdamW(
         self,
@@ -140,7 +137,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.AdamW(
+
+        return ko.AdamW(
             learning_rate=learning_rate,
             weight_decay=weight_decay,
             beta_1=beta_1,
@@ -158,8 +156,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Adadelta(
         self,
@@ -178,7 +174,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Adadelta(
+
+        return ko.Adadelta(
             learning_rate=learning_rate,
             rho=rho,
             epsilon=epsilon,
@@ -194,8 +191,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Adagrad(
         self,
@@ -214,7 +209,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Adagrad(
+
+        return ko.Adagrad(
             learning_rate=learning_rate,
             initial_accumulator_value=initial_accumulator_value,
             epsilon=epsilon,
@@ -230,8 +226,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Adamax(
         self,
@@ -251,7 +245,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Adamax(
+
+        return ko.Adamax(
             learning_rate=learning_rate,
             beta_1=beta_1,
             beta_2=beta_2,
@@ -268,8 +263,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Adafactor(
         self,
@@ -291,7 +284,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Adafactor(
+
+        return ko.Adafactor(
             learning_rate=learning_rate,
             beta_2_decay=beta_2_decay,
             epsilon_1=epsilon_1,
@@ -310,8 +304,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Nadam(
         self,
@@ -331,7 +323,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Nadam(
+
+        return ko.Nadam(
             learning_rate=learning_rate,
             beta_1=beta_1,
             beta_2=beta_2,
@@ -348,8 +341,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Ftrl(
         self,
@@ -372,7 +363,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Ftrl(
+
+        return ko.Ftrl(
             learning_rate=learning_rate,
             learning_rate_power=learning_rate_power,
             initial_accumulator_value=initial_accumulator_value,
@@ -392,8 +384,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Lion(
         self,
@@ -412,7 +402,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Lion(
+
+        return ko.Lion(
             learning_rate=learning_rate,
             beta_1=beta_1,
             beta_2=beta_2,
@@ -428,8 +419,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Lamb(
         self,
@@ -449,7 +438,8 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.Lamb(
+
+        return ko.Lamb(
             learning_rate=learning_rate,
             beta_1=beta_1,
             beta_2=beta_2,
@@ -466,8 +456,6 @@ class Optimizers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Loss_Scale_Optimizer(
         self,
@@ -477,15 +465,14 @@ class Optimizers:
         name=None,
         **kwargs
     ):
-        layer = ko.LossScaleOptimizer(
+
+        return ko.LossScaleOptimizer(
             inner_optimizer=inner_optimizer,
             initial_scale=initial_scale,
             dynamic_growth_steps=dynamic_growth_steps,
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
 
     def Muon(
         self,
@@ -516,7 +503,8 @@ class Optimizers:
         rms_rate=None,
         **kwargs
     ):
-        layer = ko.Muon(
+
+        return ko.Muon(
             learning_rate=learning_rate,
             adam_beta_1=adam_beta_1,
             adam_beta_2=adam_beta_2,
@@ -544,5 +532,3 @@ class Optimizers:
             rms_rate=rms_rate,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer

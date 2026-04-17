@@ -3,7 +3,7 @@ import keras.losses as kl
 
 class Losses:
     def __init__(self):
-        self.built = {}
+        pass
 
     # Probabilistic losses
     def binaryCrossentropy(
@@ -15,7 +15,8 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.BinaryCrossentropy(
+
+        return kl.BinaryCrossentropy(
             from_logits=from_logits,
             label_smoothing=label_smoothing,
             axis=axis,
@@ -23,8 +24,6 @@ class Losses:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
 
     def binaryFocalCrossentropy(
         self,
@@ -38,7 +37,8 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.BinaryFocalCrossentropy(
+
+        return kl.BinaryFocalCrossentropy(
             apply_class_balancing=apply_class_balancing,
             alpha=alpha,
             gamma=gamma,
@@ -49,8 +49,6 @@ class Losses:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
 
     def categoricalCrossentropy(
         self,
@@ -61,7 +59,8 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.CategoricalCrossentropy(
+
+        return kl.CategoricalCrossentropy(
             from_logits=from_logits,
             label_smoothing=label_smoothing,
             axis=axis,
@@ -69,8 +68,6 @@ class Losses:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
 
     def categoricalFocalCrossentropy(
         self,
@@ -83,7 +80,8 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.CategoricalFocalCrossentropy(
+
+        return kl.CategoricalFocalCrossentropy(
             alpha=alpha,
             gamma=gamma,
             from_logits=from_logits,
@@ -93,8 +91,6 @@ class Losses:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
 
     def sparseCategoricalCrossentropy(
         self,
@@ -105,7 +101,8 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.SparseCategoricalCrossentropy(
+
+        return kl.SparseCategoricalCrossentropy(
             from_logits=from_logits,
             ignore_class=ignore_class,
             reduction=reduction,
@@ -113,65 +110,53 @@ class Losses:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
 
     def poisson(self, reduction=None, name=None, dtype=None):
-        layer = kl.Poisson(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.Poisson(reduction=reduction, name=name, dtype=dtype)
 
     def ctc(self, reduction=None, name=None, dtype=None):
-        layer = kl.CTC(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.CTC(reduction=reduction, name=name, dtype=dtype)
 
     def klDivergence(self, reduction=None, name=None, dtype=None):
-        layer = kl.KLDivergence(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.KLDivergence(reduction=reduction, name=name, dtype=dtype)
 
     # Regression loss
     def meanSquaredError(self, reduction=None, name=None, dtype=None):
-        layer = kl.MeanSquaredError(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.MeanSquaredError(reduction=reduction, name=name, dtype=dtype)
 
     def meanAbsoluteError(self, reduction=None, name=None, dtype=None):
-        layer = kl.MeanAbsoluteError(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.MeanAbsoluteError(reduction=reduction, name=name, dtype=dtype)
 
     def meanAbsolutePercentageError(self, reduction=None, name=None, dtype=None):
-        layer = kl.MeanAbsolutePercentageError(
+
+        return kl.MeanAbsolutePercentageError(
             reduction=reduction, name=name, dtype=dtype
         )
-        self.built[layer.name] = layer
-        return layer
 
     def meanSquaredLogarithmicError(self, reduction=None, name=None, dtype=None):
-        layer = kl.MeanSquaredLogarithmicError(
+
+        return kl.MeanSquaredLogarithmicError(
             reduction=reduction, name=name, dtype=dtype
         )
-        self.built[layer.name] = layer
-        return layer
 
     def cosineSimilarity(self, axis=None, reduction=None, name=None, dtype=None):
-        layer = kl.CosineSimilarity(
+
+        return kl.CosineSimilarity(
             axis=axis, reduction=reduction, name=name, dtype=dtype
         )
-        self.built[layer.name] = layer
-        return layer
 
     def huber(self, delta=None, reduction=None, name=None, dtype=None):
-        layer = kl.Huber(delta=delta, reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.Huber(delta=delta, reduction=reduction, name=name, dtype=dtype)
 
     def logCosh(self, reduction=None, name=None, dtype=None):
-        layer = kl.LogCosh(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.LogCosh(reduction=reduction, name=name, dtype=dtype)
 
     def tversky(
         self,
@@ -182,7 +167,8 @@ class Losses:
         axis=None,
         dtype=None,
     ):
-        layer = kl.Tversky(
+
+        return kl.Tversky(
             alpha=alpha,
             beta=beta,
             reduction=reduction,
@@ -190,29 +176,23 @@ class Losses:
             axis=axis,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
 
     def dice(self, reduction=None, name=None, axis=None, dtype=None):
-        layer = kl.Dice(reduction=reduction, name=name, axis=axis, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.Dice(reduction=reduction, name=name, axis=axis, dtype=dtype)
 
     # Hinge losses for "maximum-margin" classification
     def hinge(self, reduction=None, name=None, dtype=None):
-        layer = kl.Hinge(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.Hinge(reduction=reduction, name=name, dtype=dtype)
 
     def squaredHinge(self, reduction=None, name=None, dtype=None):
-        layer = kl.SquaredHinge(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.SquaredHinge(reduction=reduction, name=name, dtype=dtype)
 
     def categoricalHinge(self, reduction=None, name=None, dtype=None):
-        layer = kl.CategoricalHinge(reduction=reduction, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+
+        return kl.CategoricalHinge(reduction=reduction, name=name, dtype=dtype)
 
     def categoricalGeneralizedCrossEntropy(
         self,
@@ -221,11 +201,10 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.CategoricalGeneralizedCrossEntropy(
+
+        return kl.CategoricalGeneralizedCrossEntropy(
             q=q, reduction=reduction, name=name, dtype=dtype
         )
-        self.built[layer.name] = layer
-        return layer
 
     def circle(
         self,
@@ -236,7 +215,8 @@ class Losses:
         name=None,
         dtype=None,
     ):
-        layer = kl.Circle(
+
+        return kl.Circle(
             gamma=gamma,
             margin=margin,
             remove_diagonal=remove_diagonal,
@@ -244,5 +224,3 @@ class Losses:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer

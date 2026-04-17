@@ -4,7 +4,7 @@ import keras.activations as ac
 
 class keras_Layers:
     def __init__(self):
-        self.built = {}
+        self.built = {"Layers": []}
 
     # Base/core layers
     def dense(
@@ -36,8 +36,7 @@ class keras_Layers:
             quantization_config=quantization_config,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def input_(
         self,
@@ -62,8 +61,7 @@ class keras_Layers:
             tensor=tensor,
             optional=optional,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def input_spec(
         self,
@@ -88,8 +86,7 @@ class keras_Layers:
             name=name,
             optional=optional,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def einsumdense(
         self,
@@ -126,8 +123,7 @@ class keras_Layers:
             quantization_config=quantization_config,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def embedding(
         self,
@@ -156,8 +152,7 @@ class keras_Layers:
             quantization_config=quantization_config,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def reversibleEmbedding(
         self,
@@ -184,13 +179,11 @@ class keras_Layers:
             logit_soft_cap=logit_soft_cap,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def masking(self, mask_value=None, **kwargs):
         layer = ly.Masking(mask_value=mask_value, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def lambda_(
         self, function=None, output_shape=None, mask=None, arguments=None, **kwargs
@@ -202,13 +195,11 @@ class keras_Layers:
             arguments=arguments,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def identity(self, **kwargs):
         layer = ly.Identity(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # Image and graphics - convolution
     def conv1d(
@@ -250,8 +241,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def conv2d(
         self,
@@ -292,8 +282,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def conv3d(
         self,
@@ -334,8 +323,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def separable_conv1d(
         self,
@@ -382,8 +370,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def separable_conv2d(
         self,
@@ -430,8 +417,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def depthwiseconv1d(
         self,
@@ -470,8 +456,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def depthwiseconv2d(
         self,
@@ -510,8 +495,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def conv1d_transpose(
         self,
@@ -552,8 +536,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def conv2d_transpose(
         self,
@@ -594,8 +577,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def conv3d_transpose(
         self,
@@ -636,8 +618,7 @@ class keras_Layers:
             bias_constraint=bias_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def maxpool1d(
         self,
@@ -656,8 +637,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def maxpool2d(
         self,
@@ -676,8 +656,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def maxpool3d(
         self,
@@ -696,8 +675,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def averagepooling1d(
         self,
@@ -716,8 +694,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def averagepooling2d(
         self,
@@ -736,8 +713,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def averagepooling3d(
         self,
@@ -756,92 +732,79 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def globalmaxpooling1d(self, data_format=None, keepdims=None, **kwargs):
         layer = ly.GlobalMaxPooling1D(
             data_format=data_format, keepdims=keepdims, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def globalmaxpooling2d(self, data_format=None, keepdims=None, **kwargs):
         layer = ly.GlobalMaxPooling2D(
             data_format=data_format, keepdims=keepdims, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def globalmaxpooling3d(self, data_format=None, keepdims=None, **kwargs):
         layer = ly.GlobalMaxPooling3D(
             data_format=data_format, keepdims=keepdims, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def globalaveragepooling1d(self, data_format=None, keepdims=None, **kwargs):
         layer = ly.GlobalAveragePooling1D(
             data_format=data_format, keepdims=keepdims, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def globalaveragepooling2d(self, data_format=None, keepdims=None, **kwargs):
         layer = ly.GlobalAveragePooling2D(
             data_format=data_format, keepdims=keepdims, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def globalaveragepooling3d(self, data_format=None, keepdims=None, **kwargs):
         layer = ly.GlobalAveragePooling3D(
             data_format=data_format, keepdims=keepdims, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def adaptiveaveragepooling1d(self, output_size=None, data_format=None, **kwargs):
         layer = ly.AdaptiveAveragePooling1D(
             output_size=output_size, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def adaptiveaveragepooling2d(self, output_size=None, data_format=None, **kwargs):
         layer = ly.AdaptiveAveragePooling2D(
             output_size=output_size, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def adaptiveaveragepooling3d(self, output_size=None, data_format=None, **kwargs):
         layer = ly.AdaptiveAveragePooling3D(
             output_size=output_size, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def adaptivemaxpooling1d(self, output_size=None, data_format=None, **kwargs):
         layer = ly.AdaptiveMaxPooling1D(
             output_size=output_size, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def adaptivemaxpooling2d(self, output_size=None, data_format=None, **kwargs):
         layer = ly.AdaptiveMaxPooling2D(
             output_size=output_size, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def adaptivemaxpooling3d(self, output_size=None, data_format=None, **kwargs):
         layer = ly.AdaptiveMaxPooling3D(
             output_size=output_size, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # nlp-lstm
     def lstm(
@@ -899,8 +862,7 @@ class keras_Layers:
             use_cudnn=use_cudnn,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def lstm_cell(
         self,
@@ -943,8 +905,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def gru(
         self,
@@ -1001,8 +962,7 @@ class keras_Layers:
             use_cudnn=use_cudnn,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def gru_cell(
         self,
@@ -1045,8 +1005,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def simpleRnn(
         self,
@@ -1097,13 +1056,11 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def timedistributed(self, layer=None, **kwargs):
         layer = ly.TimeDistributed(layer=layer, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def bidirectional(
         self, layer=None, merge_mode=None, weights=None, backward_layer=None, **kwargs
@@ -1115,8 +1072,7 @@ class keras_Layers:
             backward_layer=backward_layer,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # image and graphics-lstm
     def convlstm1d(
@@ -1180,8 +1136,7 @@ class keras_Layers:
             stateful=stateful,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def convlstm2d(
         self,
@@ -1244,8 +1199,7 @@ class keras_Layers:
             stateful=stateful,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def convlstm3d(
         self,
@@ -1308,8 +1262,7 @@ class keras_Layers:
             stateful=stateful,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # nlp-Rnn
     def baseRnn(
@@ -1333,8 +1286,7 @@ class keras_Layers:
             zero_output_for_mask=zero_output_for_mask,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def simpleRnnCell(
         self,
@@ -1373,13 +1325,11 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def stackedRnnCell(self, cells=None, **kwargs):
         layer = ly.StackedRNNCells(cells=cells, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # preprocessing-text
     def textvectorization(
@@ -1415,23 +1365,20 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # preprocessing-numerical feature
     def normalization(self, axis=None, mean=None, variance=None, invert=None, **kwargs):
         layer = ly.Normalization(
             axis=axis, mean=mean, variance=variance, invert=invert, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def spectral_normalization(self, layer=None, power_iterations=None, **kwargs):
         layer = ly.SpectralNormalization(
             layer=layer, power_iterations=power_iterations, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def discretization(
         self,
@@ -1452,8 +1399,7 @@ class keras_Layers:
             dtype=dtype,
             name=name,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # preprocessing-Categorical features
     def category_encoding(
@@ -1462,8 +1408,7 @@ class keras_Layers:
         layer = ly.CategoryEncoding(
             num_tokens=num_tokens, output_mode=output_mode, sparse=sparse, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def hashing(
         self,
@@ -1482,8 +1427,7 @@ class keras_Layers:
             sparse=sparse,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def hashed_crossing(
         self,
@@ -1502,8 +1446,7 @@ class keras_Layers:
             dtype=dtype,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def stringlookup(
         self,
@@ -1538,8 +1481,7 @@ class keras_Layers:
             salt=salt,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def integerlookup(
         self,
@@ -1576,8 +1518,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # preprocessing-image
     def resizing(
@@ -1605,25 +1546,21 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def rescaling(self, scale=None, offset=None, **kwargs):
         layer = ly.Rescaling(scale=scale, offset=offset, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def centercrop(self, height=None, width=None, data_format=None, **kwargs):
         layer = ly.CenterCrop(
             height=height, width=width, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def autocontrast(self, value_range=None, **kwargs):
         layer = ly.AutoContrast(value_range=value_range, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # preprocessing-image augmentation
     def augmix(
@@ -1651,37 +1588,31 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def cutmix(self, factor=None, seed=None, data_format=None, **kwargs):
         layer = ly.CutMix(factor=factor, seed=seed, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def equalization(self, value_range=None, bins=None, data_format=None, **kwargs):
         layer = ly.Equalization(
             value_range=value_range, bins=bins, data_format=data_format, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def maxnumboundingboxes(self, max_number=None, fill_value=None, **kwargs):
         layer = ly.MaxNumBoundingBoxes(
             max_number=max_number, fill_value=fill_value, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def mixUp(self, alpha=None, data_format=None, seed=None, **kwargs):
         layer = ly.MixUp(alpha=alpha, data_format=data_format, seed=seed, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def pipeline(self, layers=None, name=None):
         layer = ly.Pipeline(layers=layers, name=name)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randAugment(
         self,
@@ -1702,15 +1633,13 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomBrightness(self, factor=None, value_range=None, seed=None, **kwargs):
         layer = ly.RandomBrightness(
             factor=factor, value_range=value_range, seed=seed, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomColorDegeneration(
         self, factor=None, value_range=None, data_format=None, seed=None, **kwargs
@@ -1722,8 +1651,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomColorJitter(
         self,
@@ -1746,15 +1674,13 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomContrast(self, factor=None, value_range=None, seed=None, **kwargs):
         layer = ly.RandomContrast(
             factor=factor, value_range=value_range, seed=seed, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomCrop(
         self, height=None, width=None, seed=None, data_format=None, name=None, **kwargs
@@ -1767,8 +1693,7 @@ class keras_Layers:
             name=name,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomElasticTransform(
         self,
@@ -1793,8 +1718,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomErasing(
         self,
@@ -1815,13 +1739,11 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomFlip(self, mode=None, seed=None, data_format=None, **kwargs):
         layer = ly.RandomFlip(mode=mode, seed=seed, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomGaussianBlur(
         self,
@@ -1842,15 +1764,13 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomGrayscale(self, factor=None, data_format=None, seed=None, **kwargs):
         layer = ly.RandomGrayscale(
             factor=factor, data_format=data_format, seed=seed, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomHue(
         self, factor=None, value_range=None, data_format=None, seed=None, **kwargs
@@ -1862,8 +1782,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomInvert(
         self, factor=None, value_range=None, seed=None, data_format=None, **kwargs
@@ -1875,8 +1794,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomPerspective(
         self,
@@ -1897,8 +1815,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomPosterization(
         self, factor=None, value_range=None, data_format=None, seed=None, **kwargs
@@ -1910,8 +1827,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomRotation(
         self,
@@ -1932,8 +1848,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomSaturation(
         self, factor=None, value_range=None, data_format=None, seed=None, **kwargs
@@ -1945,8 +1860,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomSharpness(
         self, factor=None, value_range=None, data_format=None, seed=None, **kwargs
@@ -1958,8 +1872,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomShear(
         self,
@@ -1982,8 +1895,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomTranslation(
         self,
@@ -2006,8 +1918,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def randomZoom(
         self,
@@ -2030,8 +1941,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def solarization(
         self,
@@ -2048,8 +1958,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # preprocessing-audio
     def mel_spectrogram(
@@ -2085,8 +1994,7 @@ class keras_Layers:
             ref_power=ref_power,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def stftSpectrogram(
         self,
@@ -2115,8 +2023,7 @@ class keras_Layers:
             data_format=data_format,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # Layer Normalization
     def batchNormalization(
@@ -2160,8 +2067,7 @@ class keras_Layers:
             synchronized=synchronized,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def layerNormalization(
         self,
@@ -2190,13 +2096,11 @@ class keras_Layers:
             gamma_constraint=gamma_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def unitNormalization(self, axis=None, **kwargs):
         layer = ly.UnitNormalization(axis=axis, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def groupNormalization(
         self,
@@ -2227,24 +2131,20 @@ class keras_Layers:
             gamma_constraint=gamma_constraint,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def rmsNormalization(self, axis=None, epsilon=None, **kwargs):
         layer = ly.RMSNormalization(axis=axis, epsilon=epsilon, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # Regularization
     def dropout(self, rate=None, noise_shape=None, seed=None, **kwargs):
         layer = ly.Dropout(rate=rate, noise_shape=noise_shape, seed=seed, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def spatialDropout1d(self, rate=None, seed=None, name=None, dtype=None):
         layer = ly.SpatialDropout1D(rate=rate, seed=seed, name=name, dtype=dtype)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def spatialDropout2d(
         self, rate=None, data_format=None, seed=None, name=None, dtype=None
@@ -2252,8 +2152,7 @@ class keras_Layers:
         layer = ly.SpatialDropout2D(
             rate=rate, data_format=data_format, seed=seed, name=name, dtype=dtype
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def spatialDropout3d(
         self, rate=None, data_format=None, seed=None, name=None, dtype=None
@@ -2261,28 +2160,23 @@ class keras_Layers:
         layer = ly.SpatialDropout3D(
             rate=rate, data_format=data_format, seed=seed, name=name, dtype=dtype
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def gaussianDropout(self, rate=None, seed=None, **kwargs):
         layer = ly.GaussianDropout(rate=rate, seed=seed, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def alphaDropout(self, rate=None, noise_shape=None, seed=None, **kwargs):
         layer = ly.AlphaDropout(rate=rate, noise_shape=noise_shape, seed=seed, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def gaussianNoise(self, stddev=None, seed=None, **kwargs):
         layer = ly.GaussianNoise(stddev=stddev, seed=seed, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def activityRegularization(self, l1=None, l2=None, **kwargs):
         layer = ly.ActivityRegularization(l1=l1, l2=l2, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # nlp-attention
     def groupQueryAttention(
@@ -2322,8 +2216,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def multiHeadAttention(
         self,
@@ -2366,8 +2259,7 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def attention(
         self, use_scale=None, score_mode=None, dropout=None, seed=None, **kwargs
@@ -2379,122 +2271,99 @@ class keras_Layers:
             seed=seed,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def additiveAttention(self, use_scale=None, dropout=None, **kwargs):
         layer = ly.AdditiveAttention(use_scale=use_scale, dropout=dropout, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # Reshaping
     def reshape(self, target_shape=None, **kwargs):
         layer = ly.Reshape(target_shape=target_shape, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def flatten(self, data_format=None, **kwargs):
         layer = ly.Flatten(data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def repeatVector(self, n=None, **kwargs):
         layer = ly.RepeatVector(n=n, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def permute(self, dims, **kwargs):
         layer = ly.Permute(dims=dims, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def cropping1d(self, cropping=None, **kwargs):
         layer = ly.Cropping1D(cropping=cropping, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def cropping2d(self, cropping=None, data_format=None, **kwargs):
         layer = ly.Cropping2D(cropping=cropping, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def cropping3d(self, cropping=None, data_format=None, **kwargs):
         layer = ly.Cropping3D(cropping=cropping, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def upSampling1d(self, size=None, **kwargs):
         layer = ly.UpSampling1D(size=size, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def upSampling2d(self, size=None, data_format=None, interpolation=None, **kwargs):
         layer = ly.UpSampling2D(
             size=size, data_format=data_format, interpolation=interpolation, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def upSampling3d(self, size=None, data_format=None, **kwargs):
         layer = ly.UpSampling3D(size=size, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def zeroPadding1d(self, padding=None, data_format=None, **kwargs):
         layer = ly.ZeroPadding1D(padding=padding, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def zeroPadding2d(self, padding=None, data_format=None, **kwargs):
         layer = ly.ZeroPadding2D(padding=padding, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def zeroPadding3d(self, padding=None, data_format=None, **kwargs):
         layer = ly.ZeroPadding3D(padding=padding, data_format=data_format, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # merging
     def concatenate(self, axis=None, **kwargs):
         layer = ly.Concatenate(axis=axis, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def average(self, **kwargs):
         layer = ly.Average(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def maximum(self, **kwargs):
         layer = ly.Maximum(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def minimum(self, **kwargs):
         layer = ly.Minimum(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def add(self, **kwargs):
         layer = ly.Add(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def subtract(self, **kwargs):
         layer = ly.Subtract(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def multiply(self, **kwargs):
         layer = ly.Multiply(**kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def dot(self, axes=None, normalize=None, **kwargs):
         layer = ly.Dot(axes=axes, normalize=normalize, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # opt-activation
     def reLU(self, max_value=None, negative_slope=None, threshold=None, **kwargs):
@@ -2504,18 +2373,15 @@ class keras_Layers:
             threshold=threshold,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def softMax(self, axis=None, **kwargs):
         layer = ly.Softmax(axis=axis, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def leakyReLU(self, negative_slope=None, **kwargs):
         layer = ly.LeakyReLU(negative_slope=negative_slope, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def pReLU(
         self,
@@ -2532,21 +2398,18 @@ class keras_Layers:
             shared_axes=shared_axes,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def elu(self, alpha=None, **kwargs):
         layer = ly.ELU(alpha=alpha, **kwargs)
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     # Backend
     def torchModuleWrapper(self, module=None, name=None, output_shape=None, **kwargs):
         layer = ly.TorchModuleWrapper(
             module=module, name=name, output_shape=output_shape, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def tensorflow_savedModel(
         self,
@@ -2565,8 +2428,7 @@ class keras_Layers:
             name=name,
             dtype=dtype,
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def jax(
         self,
@@ -2587,12 +2449,10 @@ class keras_Layers:
             native_serialization_platforms=native_serialization_platforms,
             **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
 
     def flax(self, module=None, method=None, variables=None, **kwargs):
         layer = ly.FlaxLayer(
             module=module, method=method, variables=variables, **kwargs
         )
-        self.built[layer.name] = layer
-        return layer
+        self.built["Layers"].append(layer)
